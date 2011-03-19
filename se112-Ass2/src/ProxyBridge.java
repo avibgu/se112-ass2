@@ -1,3 +1,5 @@
+import java.util.Vector;
+
 
 public class ProxyBridge implements AssigningWebBridge {
 	
@@ -23,8 +25,8 @@ public class ProxyBridge implements AssigningWebBridge {
 	}
 
 	@Override
-	public boolean searchJob(String location, String role, String field) {
+	public Vector<String> searchJobs(String location, String role, String field) {
 		// TODO Auto-generated method stub
-		return false;
+		return new Vector<String>();
 	}
 }

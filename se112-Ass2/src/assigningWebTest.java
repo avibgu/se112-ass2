@@ -1,3 +1,5 @@
+import java.util.Vector;
+
 import junit.framework.TestCase;
 
 public class assigningWebTest extends TestCase {
@@ -32,8 +34,8 @@ public class assigningWebTest extends TestCase {
 	 * 
 	 * @return description of the job (as String) or null
 	 */
-	public boolean searchJob(String location, String role, String field){
+	public Vector<String> searchJobs(String location, String role, String field){
 		
-		return _bridge.searchJob(location, role, field);
+		return _bridge.searchJobs(location, role, field);
 	}
 }

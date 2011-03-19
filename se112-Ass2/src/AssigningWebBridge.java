@@ -1,3 +1,5 @@
+import java.util.Vector;
+
 
 public interface AssigningWebBridge {
 
@@ -7,5 +9,5 @@ public interface AssigningWebBridge {
 	
 	public boolean editMsg(int msgID,String title,String content);
 
-	public boolean searchJob(String location, String role, String field);	
+	public Vector<String> searchJobs(String location, String role, String field);	
 }
