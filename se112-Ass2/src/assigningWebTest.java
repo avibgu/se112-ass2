@@ -15,18 +15,18 @@ public class assigningWebTest extends TestCase {
 	}
 	
 	public boolean addMessage(int msgID,String title,String content){
-		
-		return true;
+		return _bridge.addMsg(msgID, title, content);
 	}
 	
 	public boolean register(int ID, int numOfMsg){
 		
-		return true;
+		return _bridge.registerClient(ID, numOfMsg);
+
 	}
 	
 	public boolean editMessage(int msgID,String title,String content){
 		
-		return true;
+		return _bridge.editMsg(msgID, title, content);
 	}
 	
 	
