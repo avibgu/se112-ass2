@@ -7,6 +7,7 @@ public class assigningWebTest extends TestCase {
 	
 	protected void setUp() throws Exception {
 		super.setUp();
+		this._bridge = Driver.getBridge();
 	}
 
 	protected void tearDown() throws Exception {
