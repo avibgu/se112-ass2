@@ -1,6 +1,5 @@
 import junit.framework.TestCase;
 
-
 public class assigningWebTest extends TestCase {
 	
 	private AssigningWebBridge _bridge;
@@ -29,6 +28,12 @@ public class assigningWebTest extends TestCase {
 		return _bridge.editMsg(msgID, title, content);
 	}
 	
-	
-
+	/**
+	 * 
+	 * @return description of the job (as String) or null
+	 */
+	public boolean searchJob(String location, String role, String field){
+		
+		return _bridge.searchJob(location, role, field);
+	}
 }

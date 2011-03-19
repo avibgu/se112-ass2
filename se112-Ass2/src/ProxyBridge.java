@@ -22,4 +22,9 @@ public class ProxyBridge implements AssigningWebBridge {
 		return true;
 	}
 
+	@Override
+	public boolean searchJob(String location, String role, String field) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

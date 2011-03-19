@@ -1,5 +1,3 @@
-import junit.framework.TestCase;
-
 
 public class publishMessageStoryTest extends assigningWebTest {
 	
