@@ -6,19 +6,19 @@ public class RealBridge implements AssigningWebBridge {
 	@Override
 	public boolean addMsg(int msgID, String title, String content) {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean editMsg(int msgID, String title, String content) {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean registerClient(int ID, int numOfMsg) {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 
