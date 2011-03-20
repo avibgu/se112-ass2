@@ -34,30 +34,30 @@ public class SearchJobStoryTest extends assigningWebTest {
 	public void testSearchJobWithThreeParameters(){
 		
 		assertNotNull(searchJobs("Tel Aviv", "C++ developer", "software development"));
-		assertNotNull(searchJobs("Beer Sheva", "C++ developer", "software development"));		
+		assertNull(searchJobs("Beer Sheva", "C++ developer", "software development"));		
 	}
 	
 	public void testSearchJobWithTwoParameters(){
 		
 		assertNotNull(searchJobs("Tel Aviv", "C++ developer", ""));
-		assertNotNull(searchJobs("Beer Sheva", "C++ developer", ""));
+		assertNull(searchJobs("Beer Sheva", "C++ developer", ""));
 		
 		assertNotNull(searchJobs("Tel Aviv", "", "software development"));
-		assertNotNull(searchJobs("Beer Sheva", "", "Construction"));
+		assertNull(searchJobs("Beer Sheva", "", "Construction"));
 		
 		assertNotNull(searchJobs("", "C++ developer", "software development"));
-		assertNotNull(searchJobs("", "PHP developer", "software development"));		
+		assertNull(searchJobs("", "PHP developer", "software development"));		
 	}
 	
 	public void testSearchJobWithOneParameters(){
 		
 		assertNotNull(searchJobs("Tel Aviv", "", ""));
-		assertNotNull(searchJobs("Bat Yam", "", ""));	
+		assertNull(searchJobs("Bat Yam", "", ""));	
 		
 		assertNotNull(searchJobs("", "C++ developer", ""));
-		assertNotNull(searchJobs("", "PHP developer", ""));	
+		assertNull(searchJobs("", "PHP developer", ""));	
 		
 		assertNotNull(searchJobs("", "", "software development"));
-		assertNotNull(searchJobs("", "", "Construction"));	
+		assertNull(searchJobs("", "", "Construction"));	
 	}
 }
