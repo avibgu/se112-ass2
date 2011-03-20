@@ -1,7 +1,11 @@
 
 public class publishMessageStoryTest extends assigningWebTest {
 	
+	protected void setUp() throws Exception {
+		super.setUp();
+		register(1,10);
 		
+	}
 	public void testPublishMessage(){
 		assertTrue(addMessage(1,"C++ developer","Requirements: - First degree in software engineering. -  2 years of experience at least."));
 		assertTrue(addMessage(2,"System administrator","Knowledge in unix and linux platforms. Recommendations are required. "));
@@ -9,7 +13,7 @@ public class publishMessageStoryTest extends assigningWebTest {
 	}
 	
 	public void testMessageLimit(){
-		register(1,10);
+		
 		assertTrue(addMessage(1,"C++ developer","Requirements: - First degree in software engineering. -  2 years of experience at least."));
 		assertTrue(addMessage(2,"C++ developer","Requirements: - First degree in software engineering. -  2 years of experience at least."));
 		assertTrue(addMessage(3,"C++ developer","Requirements: - First degree in software engineering. -  2 years of experience at least."));
