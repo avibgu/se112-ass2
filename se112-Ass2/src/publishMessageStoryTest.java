@@ -28,10 +28,10 @@ public class publishMessageStoryTest extends assigningWebTest {
 		
 	}
 	
-	public void testUpdateMessage(){
-		addMessage(4,"C++ developer","Requirements: - First degree in software engineering. -  2 years of experience at least.");
-		assertTrue(editMessage(4,"C++ developer","Requirements: - First degree in software engineering. - 5 years of experience at least."));
-		
+	public void testLengthTitle(){
+		String longTitle = "I need c++ developer for new company in Hertzelia for full time job. Please send your CV to : jobs@blabla.co.il bla bla bla bla bla bla bla bla bla";
+		assertTrue(addMessage(1,"java developer","computer science graduate."));
+		assertFalse(addMessage(1,longTitle,"computer science graduate."));
 	}
 
 }

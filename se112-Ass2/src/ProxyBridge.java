@@ -11,20 +11,9 @@ public class ProxyBridge implements AssigningWebBridge {
 	@Override
 	public boolean addMsg(int msgID, String title, String content) {
 		
-		if (real != null) return real.addMsg(msgID, title, content);
-		
-		if ((msgID > 10) || (title.equals("")) || (content.equals("")) )
+		if ((msgID > 10) || (title.equals("")) || (content.equals("")) || (title.length() >= 50) )
 			return false;
 		
-		return true;
-	}
-
-	@Override
-	public boolean editMsg(int msgID, String title, String content) {
-		
-		if (real != null) return real.editMsg(msgID, title, content);
-		
-		// TODO Auto-generated method stub
 		return true;
 	}
 
@@ -45,4 +34,5 @@ public class ProxyBridge implements AssigningWebBridge {
 		// TODO Auto-generated method stub
 		return new Vector<String>();
 	}
+
 }

@@ -25,10 +25,6 @@ public class assigningWebTest extends TestCase {
 
 	}
 	
-	public boolean editMessage(int msgID,String title,String content){
-		
-		return _bridge.editMsg(msgID, title, content);
-	}
 	
 	/**
 	 * 
