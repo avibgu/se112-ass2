@@ -1,5 +1,7 @@
 package domain;
 
+import java.util.Vector;
+
 
 
 public class Company {
@@ -9,9 +11,10 @@ public class Company {
 	private String username;
 	private String pass;
 	private int id;
+	private Vector<Message> companyMsgs;
 	
 	public Company(String name, String user, String pass, int numOfAds) {
-		this.id = companyId++;
+		this.setId(companyId++);
 		this.numOfMessages = numOfAds;
 		this.username = user;
 		this.pass = pass;
@@ -41,5 +44,25 @@ public class Company {
 	}
 	public int getCompanyId() {
 		return companyId;
+	}
+
+
+	public void addCompanyMsgs(Message msg) {
+		this.companyMsgs.add(msg);
+	}
+
+
+	public Vector<Message> getCompanyMsgs() {
+		return companyMsgs;
+	}
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
+	public int getId() {
+		return id;
 	}
 }
