@@ -11,6 +11,7 @@ public class Message {
 
 	private String title;
 	private String body;
+	private int	id;
 	
 	public Message(String title, String body) {
 		super();
@@ -36,5 +37,13 @@ public class Message {
 
 	public String getBody() {
 		return body;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public int getId() {
+		return id;
 	}
 }
