@@ -12,11 +12,17 @@ public class Message {
 	private String title;
 	private String body;
 	private int	id;
+	private String location;
+	private String role;
+	private String field;
 	
-	public Message(String title, String body) {
+	public Message(String title, String body,String role,String field, String location) {
 		super();
 		this.setTitle(title);
 		this.setBody(body);
+		this.setField(field);
+		this.setLocation(location);
+		this.setRole(role);
 	}
 	
 	public String toString(){
@@ -46,4 +52,31 @@ public class Message {
 	public int getId() {
 		return id;
 	}
+
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
+	public String getLocation() {
+		return location;
+	}
+
+	public void setField(String field) {
+		this.field = field;
+	}
+
+	public String getField() {
+		return field;
+	}
+
+	
 }
