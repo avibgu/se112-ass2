@@ -75,7 +75,7 @@ public class JobsController {
 		if ( !getCompanies().contains(user)) return null;
 		
 		if ( !getCompany(user).canAddAnotherAd()) return null;
-		
+		 
 		Message msg = new Message(body,role,field,location, String.valueOf(getCompany(user).getId())); // TODO is this ok?..
 		
 		getCompany(user).addCompanyMsgs(msg);
