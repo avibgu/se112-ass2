@@ -1,3 +1,4 @@
+package domain;
 public class SearchJobTest extends DrushimTests{
 	
 	private String[] ids;

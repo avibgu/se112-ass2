@@ -1,3 +1,4 @@
+package domain;
 public class ProxyBridge implements DrushimBridge{
 
 	public DrushimBridge real;

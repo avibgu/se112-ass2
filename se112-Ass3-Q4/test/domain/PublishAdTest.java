@@ -1,3 +1,4 @@
+package domain;
 public class PublishAdTest extends DrushimTests {
 
 	public void testUpdateNumAd() {

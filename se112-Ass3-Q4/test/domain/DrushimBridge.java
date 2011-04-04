@@ -1,3 +1,4 @@
+package domain;
 public interface DrushimBridge {
 	
 	public void addDomain(String string);
