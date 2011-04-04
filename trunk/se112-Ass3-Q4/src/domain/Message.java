@@ -9,32 +9,26 @@ package domain;
  */
 public class Message {
 
-	private String title;
 	private String body;
 	private int	id;
 	private String location;
 	private String role;
 	private String field;
+	private String status;
+	private String companyId;
 	
-	public Message(String title, String body,String role,String field, String location) {
+	public Message( String body,String role,String field, String location, String companyId) {
 		super();
-		this.setTitle(title);
 		this.setBody(body);
 		this.setField(field);
 		this.setLocation(location);
 		this.setRole(role);
+		this.setStatus("OPEN");
+		this.setCompanyId(companyId);
 	}
 	
 	public String toString(){
-		return getTitle() + "\n" + getBody();
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-	public String getTitle() {
-		return title;
+		return getRole() + "\n" + getBody(); //TODO
 	}
 
 	public void setBody(String body) {
@@ -76,6 +70,22 @@ public class Message {
 
 	public String getField() {
 		return field;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setCompanyId(String companyId) {
+		this.companyId = companyId;
+	}
+
+	public String getCompanyId() {
+		return companyId;
 	}
 
 	

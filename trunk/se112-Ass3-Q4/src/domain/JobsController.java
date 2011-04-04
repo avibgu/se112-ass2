@@ -25,9 +25,10 @@ public class JobsController {
 		this.setCompanies(new Vector<Company>());
 	}
 	
-	public void addCompany(String companyName, String username, String password, int numberOfMsg){
+	public int addCompany(String companyName, String username, String password, int numberOfMsg){
 		Company newComp = new Company(companyName, username, password, numberOfMsg);
 		getCompanies().add(newComp);
+		return newComp.getId();
 	}
 	
 	public void addRole(String newRole){
@@ -69,8 +70,18 @@ public class JobsController {
 		return currComp;
 		
 	}
-	public void publishMessage(String title, String body,String location,String role,String field){
-		getMessages().add(new Message(title, body,role,field,location));
+	public Integer publishMessage(String body,String location,String role,String field, String user){
+
+		if ( !getCompanies().contains(user)) return null;
+		
+		if ( !getCompany(user).canAddAnotherAd()) return null;
+		
+		Message msg = new Message(body,role,field,location);
+		
+		getCompany(user).addCompanyMsgs(msg);
+		getMessages().add(msg);
+		
+		return msg.getId();
 	}
 	
 	public Vector<Message> searchMessage(String location, String role, String field){
@@ -135,5 +146,27 @@ public class JobsController {
 		return connectedUsers;
 	}
 
-	
+	public boolean closeAd(String user, String pass, int id) {
+
+		if ( !getCompanies().contains(user)) return false;
+		
+		Message msg = getMessage(id); 
+		
+		if (null != msg){
+			
+			msg.setStatus("Close");
+			return true;
+		}
+		
+		return false;
+	}
+
+	public Message getMessage(int id) {
+
+		for ( Message msg: getMessages())
+			if (msg.getId() == id)
+				return msg;
+		
+		return null;
+	}
 }
