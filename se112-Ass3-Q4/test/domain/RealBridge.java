@@ -1,5 +1,7 @@
 package domain;
 
+import java.util.Vector;
+
 public class RealBridge implements DrushimBridge {
 	
 	private JobsController jobsController;
@@ -56,15 +58,23 @@ public class RealBridge implements DrushimBridge {
 
 		Message msg = getJobsController().getMessage(Integer.valueOf(id));
 		
-		String ans[] = {msg.getCompanyId(), msg.getField(), msg.getRole(), msg.getBody(), msg.getLocation(), msg.getStatus()};
-		
-		return ans;
+		return msg.toStringArray();
 	}
 
 	@Override
 	public String[] getAds(String role, String domain, String area) {
-		throw new UnsupportedOperationException();
-		// TODO Auto-generated method stub
+		Vector<Message> results = getJobsController().searchMessage(area, role, domain);
+		
+		int size = results.size();
+		
+		if (size == 0) return null;
+		
+		String ans[] = new String [size];
+		
+		for (int i=0; i < size; i++)
+			ans[i] = String.valueOf(results.get(i).getId());
+		
+		return ans;
 	}
 
 	@Override

@@ -88,5 +88,11 @@ public class Message {
 		return companyId;
 	}
 
+	public String[] toStringArray() {
+
+		String ans[] = {getCompanyId(), getField(), getRole(), getBody(), getLocation(), getStatus()};
+		return ans;
+	}
+
 	
 }
