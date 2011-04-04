@@ -21,14 +21,14 @@ public class Main {
 
 		JobsController jobsController = new JobsController();
 		
-		jobsController.publishMessage("C++ developer",
-				 "Requirements: " +
-				 "- First degree in software engineering. " +
-				 "- 2 years of experience at least. " +
-				 "Location: " +
-				 "- Tel Aviv. " +
-				 "Field: " +
-				 "- software development.");
+//		jobsController.publishMessage("C++ developer",
+//				 "Requirements: " +
+//				 "- First degree in software engineering. " +
+//				 "- 2 years of experience at least. " +
+//				 "Location: " +
+//				 "- Tel Aviv. " +
+//				 "Field: " +
+//				 "- software development.");
 
 		Vector<Message> ans = jobsController.searchMessage("Tel Aviv", "", "");
 		

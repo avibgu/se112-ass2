@@ -19,8 +19,7 @@ public class Company {
 		this.username = user;
 		this.pass = pass;
 	}
-	
-	
+
 	public void setNumOfMessages(int numOfMessages) {
 		this.numOfMessages = numOfMessages;
 	}
@@ -39,29 +38,15 @@ public class Company {
 	public String getPass() {
 		return pass;
 	}
-	public void setCompanyId(int companyId) {
-		this.companyId = companyId;
-	}
-	public int getCompanyId() {
-		return companyId;
-	}
-
-
 	public void addCompanyMsgs(Message msg) {
 		this.companyMsgs.add(msg);
 	}
-
-
 	public Vector<Message> getCompanyMsgs() {
 		return companyMsgs;
 	}
-
-
 	public void setId(int id) {
 		this.id = id;
 	}
-
-
 	public int getId() {
 		return id;
 	}
