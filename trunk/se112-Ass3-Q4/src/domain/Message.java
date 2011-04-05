@@ -8,7 +8,7 @@ package domain;
  *
  */
 public class Message {
-
+	static int messageId = 0;
 	private String body;
 	private int	id;
 	private String location;
@@ -25,6 +25,7 @@ public class Message {
 		this.setRole(role);
 		this.setStatus("OPEN");
 		this.setCompanyId(companyId);
+		this.setId(messageId++);
 	}
 	
 	public String toString(){
