@@ -79,20 +79,28 @@ public class RealBridge implements DrushimBridge {
 
 	@Override
 	public String getCompanyId(String name) {
-		throw new UnsupportedOperationException();
-		// TODO Auto-generated method stub
+		return String.valueOf(getJobsController().getCompany(name).getId());
 	}
 
 	@Override
 	public String[] getMyAdsIds(String user, String pass) {
-		throw new UnsupportedOperationException();
-		// TODO Auto-generated method stub
+		String ans[] = null;
+		if (getJobsController().login(user, pass)){
+			Vector<Message> messages =  getJobsController().getCompany(user).getCompanyMsgs();
+			ans = new String[messages.size()];
+			for (int i=0; i<messages.size();++i){
+				ans[i] = String.valueOf(messages.get(i).getId());
+			}
+		}	
+		return ans;
 	}
 
 	@Override
 	public int getMyCredit(String user, String pass) {
-		throw new UnsupportedOperationException();
-		// TODO Auto-generated method stub
+		if (getJobsController().login(user, pass)){
+			return getJobsController().getCompany(user).getNumOfMessages();
+		}
+		return -2;
 	}
 
 	public void setJobsController(JobsController jobsController) {
