@@ -1,4 +1,5 @@
 package domain;
+
 public class PublishAdTest extends DrushimTests {
 
 	public void testUpdateNumAd() {
@@ -81,7 +82,7 @@ public class PublishAdTest extends DrushimTests {
 		String user0="google";
 		String pass0="goog1234";
 
-		String id=this.bridge.addNewAd(user0, pass0, "DBA team leader","Minimum 5 years experience as Oracle DBA.","Tel-aviv","Software");
+		String id=this.bridge.addNewAd(user0, pass0, "Software","DBA team leader","Minimum 5 years experience as Oracle DBA.","Tel-aviv");
 		assertNull(id);
 		assertEquals(this.bridge.getMyAdsIds(user0, pass0).length,0);
 	}

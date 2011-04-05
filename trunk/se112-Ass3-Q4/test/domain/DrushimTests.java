@@ -1,4 +1,5 @@
 package domain;
+
 import junit.framework.TestCase;
 
 
