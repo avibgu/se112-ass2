@@ -31,11 +31,13 @@ public class RealBridge implements DrushimBridge {
 
 	@Override
 	public String addNewAd(String user, String pass, String domain, String role, String desc, String area) {
-
+		Integer id = null;
 		if (getJobsController().login(user, pass))
-			return getJobsController().publishMessage(desc, area, role, domain, user).toString();
+			id = getJobsController().publishMessage(desc, area, role, domain, user);
+			if (id != null)
+				return id.toString();
 		
-		else return null;
+	    return null;
 	}
 
 	@Override
@@ -63,16 +65,16 @@ public class RealBridge implements DrushimBridge {
 
 	@Override
 	public String[] getAds(String role, String domain, String area) {
+		String ans[] = null;
 		Vector<Message> results = getJobsController().searchMessage(area, role, domain);
-		
-		int size = results.size();
-		
-		if (size == 0) return null;
-		
-		String ans[] = new String [size];
-		
-		for (int i=0; i < size; i++)
-			ans[i] = String.valueOf(results.get(i).getId());
+		if (results != null){
+			int size = results.size();
+			
+			ans = new String [size];
+			
+			for (int i=0; i < size; i++)
+				ans[i] = String.valueOf(results.get(i).getId());
+		}
 		
 		return ans;
 	}

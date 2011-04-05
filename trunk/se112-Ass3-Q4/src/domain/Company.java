@@ -20,9 +20,10 @@ public class Company {
 		this.username = user;
 		this.pass = pass;
 		this.validFrom = new Date().getTime();
+		companyMsgs = new Vector<Message>();
 	}
 	
-	public boolean canAddAnotherAd(){
+	public  boolean canAddAnotherAd(){
 
 		if (	validFrom - new Date().getTime() > oneYear ||
 				getNumOfMessages() == 0)
@@ -30,8 +31,6 @@ public class Company {
 		
 		if (getNumOfMessages() == -1)	// unlimited messages
 			return true;
-		
-		setNumOfMessages(getNumOfMessages()-1);
 		
 		return true;
 	}
@@ -55,6 +54,7 @@ public class Company {
 		return pass;
 	}
 	public void addCompanyMsgs(Message msg) {
+		setNumOfMessages(getNumOfMessages()-1);
 		this.companyMsgs.add(msg);
 	}
 	public Vector<Message> getCompanyMsgs() {
