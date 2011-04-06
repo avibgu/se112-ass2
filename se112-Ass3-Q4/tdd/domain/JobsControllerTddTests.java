@@ -13,5 +13,8 @@ public class JobsControllerTddTests extends TestCase {
 	protected void setUp() throws Exception {
 		super.setUp();
 	}
-
+	
+	public void testHello(){
+		assertNotNull("not yet implemented..");
+	}
 }
