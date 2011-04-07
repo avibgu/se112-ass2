@@ -69,11 +69,11 @@ public class JobsController {
 		Company currComp = null;
 		for (int i=0; i < getCompanies().size() ;++i){
 			 currComp = getCompanies().get(i);
-			if (currComp.getUsername().equals(username)){
-				return currComp;
+			 if (currComp.getUsername().equals(username)){
+					return currComp;
 			}
 		}
-		return currComp;
+		return null;
 		
 	}
 	public Integer publishMessage(String body,String location,String role,String field, String user){
