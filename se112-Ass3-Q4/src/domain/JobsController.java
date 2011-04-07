@@ -177,6 +177,9 @@ public class JobsController {
 		
 		if (null != msg){
 			
+			// check if the user is the owner of the Ad..
+			if ( !String.valueOf(getCompany(user).getId()).equals(msg.getCompanyId()) ) return false;
+			
 			msg.setStatus("Close");
 			return true;
 		}
