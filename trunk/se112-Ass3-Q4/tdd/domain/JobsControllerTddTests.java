@@ -22,11 +22,27 @@ public class JobsControllerTddTests extends TestCase {
 		getcontroller().addRole("role3");
 	}
 	
-	public void testSearchMessage(){
+	public void testSearchMessageWithNullMessage(){
+		assertNotNull("not yet implemented..");
+	}
+	
+	public void testSearchMessageWithEmptyString(){
+		assertNotNull("not yet implemented..");
+	}
+	
+	public void testSearchUnpublishedMessage(){
+		assertNotNull("not yet implemented..");
+	}
+	
+	public void testSearchLegitimateMessage(){
 		assertNotNull("not yet implemented..");
 	}
 
-	public void testCloseAd(){
+	public void testCloseLigitimateAd(){
+		assertNotNull("not yet implemented..");
+	}
+	
+	public void testCloseUnligitimateAd(){
 		assertNotNull("not yet implemented..");
 	}
 		
