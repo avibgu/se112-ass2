@@ -78,7 +78,11 @@ public class JobsController {
 	}
 	public Integer publishMessage(String body,String location,String role,String field, String user){
 		
-		if (role.equals("") || field.equals("") || location.equals("") || user.equals("") || body.equals("")) return null;
+		if (role == null || field == null || location == null || body == null || user == null ||
+			role.equals("") || field.equals("") || location.equals("") || user.equals("") || body.equals("")) 
+			return null;
+		
+		
 		if (!roles.contains(role.toLowerCase()) || !locations.contains(location.toLowerCase()) || !fields.contains(field.toLowerCase()))
 			return null; 
 			
