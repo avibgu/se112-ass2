@@ -1,5 +1,7 @@
 package domain;
 
+import java.util.Vector;
+
 import junit.framework.TestCase;
 
 public class JobsControllerTddTests extends TestCase {
@@ -23,35 +25,99 @@ public class JobsControllerTddTests extends TestCase {
 	}
 	
 	public void testSearchMessageWithNullMessage(){
-		assertNotNull("not yet implemented..");
+		
+		publish();
+		
+		Vector<Message> ans;
+		ans = getcontroller().searchMessage(null, "role1", "field1");
+		assertNotNull(ans);
+		assertEquals(1, ans.size());
+		ans = getcontroller().searchMessage("loc1", null, "field1");
+		assertNotNull(ans);
+		assertEquals(1, ans.size());
+		ans = getcontroller().searchMessage("loc1", "role1", null);
+		assertNotNull(ans);
+		assertEquals(1, ans.size());
 	}
-	
+
 	public void testSearchMessageWithEmptyString(){
-		assertNotNull("not yet implemented..");
+
+		publish();
+		
+		Vector<Message> ans;
+		ans = getcontroller().searchMessage("", "role1", "field1");
+		assertNull(ans);
+		ans = getcontroller().searchMessage("loc1", "", "field1");
+		assertNull(ans);
+		ans = getcontroller().searchMessage("loc1", "role1", "");
+		assertNull(ans);
 	}
 	
 	public void testSearchUnpublishedMessage(){
-		assertNotNull("not yet implemented..");
+		
+		publish();
+		
+		Vector<Message> ans;
+		ans = getcontroller().searchMessage("loc2", "role1", "field1");
+		assertNotNull(ans);
+		assertEquals(0, ans.size());
+		ans = getcontroller().searchMessage("loc1", "role2", "field1");
+		assertNotNull(ans);
+		assertEquals(0, ans.size());
+		ans = getcontroller().searchMessage("loc1", "role1", "field2");
+		assertNotNull(ans);
+		assertEquals(0, ans.size());
 	}
 	
 	public void testSearchLegitimateMessage(){
-		assertNotNull("not yet implemented..");
+
+		publish();
+		
+		Vector<Message> ans;
+		ans = getcontroller().searchMessage("loc1", "role1", "field1");
+		assertNotNull(ans);
+		assertEquals(1, ans.size());
+		ans = getcontroller().searchMessage("loc2", "role2", "field2");
+		assertNotNull(ans);
+		assertEquals(1, ans.size());
 	}
 
 	public void testCloseLigitimateAd(){
-		assertNotNull("not yet implemented..");
+		
+		Integer[] ans = publish();
+		
+		assertTrue( getcontroller().closeAd("c1", "c1234", ans[0]) );
+		assertTrue( getcontroller().closeAd("c2", "c1234", ans[1]) );
+		assertTrue( getcontroller().closeAd("c1", "c1234", ans[2]) );
 	}
 	
 	public void testCloseUnligitimateAd(){
-		assertNotNull("not yet implemented..");
-	}
+
+		Integer[] ans = publish();
 		
+		assertFalse( getcontroller().closeAd("c2", "c1234", ans[0]) );
+		assertFalse( getcontroller().closeAd("c1", "c1234", ans[1]) );
+		assertFalse( getcontroller().closeAd("c2", "c1234", ans[2]) );
+		
+		assertFalse( getcontroller().closeAd("c1", "c1234", new Integer(200)) );
+	}
+
 	public void setcontroller(JobsController _controller) {
 		this._controller = _controller;
 	}
 
 	public JobsController getcontroller() {
 		return _controller;
-	} 
+	}
+	
+	private Integer[] publish() {
+		
+		Integer[] ans = new Integer[3];
 
+		ans[0] = getcontroller().publishMessage("some body..", "loc1", "role1", "field1", "c1");
+		ans[1] = getcontroller().publishMessage("some body..", "loc2", "role2", "field2", "c2");
+		ans[2] = getcontroller().publishMessage("some body..", "loc3", "role3", "field3", "c1");
+		
+		return ans;
+	}
 }
