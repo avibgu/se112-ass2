@@ -1,0 +1,13 @@
+TDD Tests:
+
+Publish message:
+
+* correct message.
+* User doesn't exist.
+* User has no credit.
+* Role wrong.
+* Field wrong.
+* Location wrong.
+* Empty body.
+* Decreasing number of messages.
+
