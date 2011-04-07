@@ -145,6 +145,9 @@ public class JobsControllerTddTests extends TestCase {
 		assertNull(num);
 	}
 	
+	/**
+	 * Test that searching messages when sending null as parameter is ok  
+	 */
 	public void testSearchMessageWithNullMessage(){
 		
 		publish();
@@ -161,6 +164,10 @@ public class JobsControllerTddTests extends TestCase {
 		assertEquals(1, ans.size());
 	}
 
+	/**
+	 * Test that searching messages when sending "" as parameter is NOT ok
+	 * (because there is no such location\role\field) 
+	 */
 	public void testSearchMessageWithEmptyString(){
 
 		publish();
@@ -174,6 +181,9 @@ public class JobsControllerTddTests extends TestCase {
 		assertNull(ans);
 	}
 	
+	/**
+	 * Test that searching messages that wasn't published will return empty vector
+	 */
 	public void testSearchUnpublishedMessage(){
 		
 		publish();
@@ -190,6 +200,9 @@ public class JobsControllerTddTests extends TestCase {
 		assertEquals(0, ans.size());
 	}
 	
+	/**
+	 * Test that searching messages that published will return those messages
+	 */
 	public void testSearchLegitimateMessage(){
 
 		publish();
@@ -203,6 +216,9 @@ public class JobsControllerTddTests extends TestCase {
 		assertEquals(1, ans.size());
 	}
 
+	/**
+	 * Test that user can close his messages
+	 */
 	public void testCloseLigitimateAd(){
 		
 		Integer[] ans = publish();
@@ -212,6 +228,9 @@ public class JobsControllerTddTests extends TestCase {
 		assertTrue( getcontroller().closeAd("c1", "c1234", ans[2]) );
 	}
 	
+	/**
+	 * Test that user can't close messages that not his
+	 */
 	public void testCloseUnligitimateAd(){
 
 		Integer[] ans = publish();
@@ -223,6 +242,7 @@ public class JobsControllerTddTests extends TestCase {
 		assertFalse( getcontroller().closeAd("c1", "c1234", new Integer(200)) );
 	}
 	
+	// this method only publish messages that the search tests will use
 	private Integer[] publish() {
 		
 		Integer[] ans = new Integer[3];
@@ -234,10 +254,12 @@ public class JobsControllerTddTests extends TestCase {
 		return ans;
 	}
 
+	// setter
 	public void setcontroller(JobsController _controller) {
 		this._controller = _controller;
 	}
 
+	// getter
 	public JobsController getcontroller() {
 		return _controller;
 	}
